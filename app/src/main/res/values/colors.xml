@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="myColorPrimary">#25252F</color>
+    <color name="myColorPrimaryDark">#25252F</color>
+    <color name="myColorAccent">#FF4081</color>
+
+    <color name="background">#6b6b6b</color>
+    <color name="firstColor">#EC86B6</color>
+    <color name="secondColor">#F8F494</color>
+    <color name="thirdColor">#92D6F2</color>
+
+    <color name="gradStartColor">#e0e0e0</color>
+    <color name="gradEndColor">#505050</color>
+
+</resources>
