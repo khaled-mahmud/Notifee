@@ -2,10 +2,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.pgdit101.iit.notifee">
 
-    <uses-permission android:name="android.permission.CAMERA"/>
-    <!--<uses-feature android:name="android.hardware.camera2"/>
-    <uses-feature android:name="android.hardware.camera2.autofocus"/>-->
-
+    <uses-permission android:name="android.permission.CAMERA" />
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!--
+    <uses-feature android:name="android.hardware.camera2"/>
+    <uses-feature android:name="android.hardware.camera2.autofocus"/>
+    -->
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -20,9 +22,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".MainActivity">
-        </activity>
+        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".ApiActivity"></activity>
     </application>
 
 </manifest>

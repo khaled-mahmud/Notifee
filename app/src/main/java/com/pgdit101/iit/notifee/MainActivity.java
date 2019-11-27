@@ -16,7 +16,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
 
+import com.google.zxing.BarcodeFormat;
 import com.google.zxing.Result;
+
+import java.util.regex.Pattern;
 
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
@@ -121,8 +124,11 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
     @Override
     public void handleResult(Result result) {
         final String myResult = result.getText();
-        Log.d("QRCodeScanner", result.getText());
-        Log.d("QRCodeScanner", result.getBarcodeFormat().toString());
+        //final String myContent = result.getBarcodeFormat().toString();
+        //final String getContents = result.get;
+        Log.wtf("QRCodeScanner", result.getText());
+        Log.wtf("QRCodeScanner", result.getBarcodeFormat().toString());
+
 
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         builder.setTitle("Scan Result");
@@ -132,14 +138,37 @@ public class MainActivity extends AppCompatActivity implements ZXingScannerView.
                 scannerView.resumeCameraPreview(MainActivity.this);
             }
         });
-        builder.setNeutralButton("Visit", new DialogInterface.OnClickListener() {
+
+
+        if(Pattern.matches("[0-9]{1,13}", myResult)) {
+            builder.setNeutralButton("Save Product", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent upcIntent = new Intent(MainActivity.this, ApiActivity.class);
+                    upcIntent.putExtra("upc_code", myResult);
+                    startActivity(upcIntent);
+                }
+            });
+        } else {
+            builder.setNeutralButton("Visit", new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface dialog, int which) {
+                    Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(myResult));
+                    startActivity(browserIntent);
+                }
+            });
+        }
+
+
+        /*builder.setNeutralButton("Visit", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
                 Intent browserIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(myResult));
                 startActivity(browserIntent);
             }
-        });
+        });*/
         builder.setMessage(result.getText());
+        //builder.setMessage(result.getText());
         AlertDialog alert1 = builder.create();
         alert1.show();
 
