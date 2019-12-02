@@ -15,6 +15,15 @@
     <color name="thirdColor">#92D6F2</color>
 
     <color name="gradStartColor">#e0e0e0</color>
+    <color name="gradCenterColor">#e7e7e8</color>
     <color name="gradEndColor">#505050</color>
+
+
+    <color name="gradHoverStartColor">#18d7e5</color>
+    <color name="gradHoverCenterColor">#16cedb</color>
+    <color name="gradHoverEndColor">#09adb9</color>
+
+    <color name="imageBgColor">#dbdbdc</color>
+    <color name="solidColor">#FFFFFF</color>
 
 </resources>

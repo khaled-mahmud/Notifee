@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".AddProduct">
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/toolbar_product_add"
+        android:layout_alignParentTop="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:orientation="horizontal"
+            android:weightSum="1"
+            android:gravity="center_vertical">
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:padding="5dp"
+                android:layout_margin="5dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_action_close"
+                android:onClick="closeAddProduct"/>
+
+            <TextView
+                android:id="@+id/toolbar_product_add_title"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:drawablePadding="0dp"
+                android:gravity="center_vertical|start"
+                android:layout_gravity="top"
+                android:layout_marginTop="20dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="4dp"
+                android:textColor="#ffffff"
+                android:text="Create"
+                android:textSize="25dp"
+                android:textStyle="normal" />
+
+            <ImageView
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:padding="5dp"
+                android:layout_margin="20dp"
+                android:background="@android:color/transparent"
+                android:src="@drawable/ic_action_done"
+                android:onClick="doneAddProduct"/>
+
+        </LinearLayout>
+
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:orientation="vertical"
+        android:layout_below="@+id/toolbar_product_add"
+        android:background="@color/background"
+        android:paddingLeft="30dp"
+        android:paddingRight="30dp"
+        android:layout_centerInParent="true"
+        android:layout_centerHorizontal="true"
+        android:gravity="center">
+
+        <EditText
+            android:id="@+id/product_name"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:hint="Product Name"
+            android:background="@color/secondColor"
+            android:padding="12dp"
+            android:ems="10"
+            android:singleLine="true"
+            android:textColorHint="#8e8e8e"
+            android:textColor="#505050"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="#D2D2D2"/>
+
+        <EditText
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:hint="Product Description"
+            android:padding="12dp"
+            android:background="@color/firstColor"
+            android:ems="10"
+            android:singleLine="true"
+            android:textColorHint="#CCCCCC"
+            android:textColor="#666666" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="#D2D2D2"/>
+
+        <EditText
+            android:id="@+id/date"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:layout_gravity="center"
+            android:hint="Date"
+            android:padding="12dp"
+            android:focusable="false"
+            android:background="@color/firstColor"
+            android:ems="10"
+            android:singleLine="true"
+            android:textColorHint="#CCCCCC"
+            android:textColor="#666666"
+            android:onClick="showStartDatePicker"/>
+
+        <ImageView
+            android:id="@+id/deleteProduct"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:padding="5dp"
+            android:layout_marginTop="60dp"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_action_delete"
+            android:onClick="deleteProduct"/>
+
+
+
+    </LinearLayout>
+</RelativeLayout>
