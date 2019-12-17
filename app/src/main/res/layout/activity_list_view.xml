@@ -6,7 +6,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ListViewActivity">
+    tools:context=".ListViewActivity"
+    android:background="@color/background">
 
     <android.support.v7.widget.Toolbar
     android:id="@+id/toolbar_product_add"
@@ -25,7 +26,7 @@
         android:weightSum="1"
         android:gravity="center_vertical">
 
-        <TextView
+        <!--<TextView
             android:id="@+id/toolbar_product_add_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
@@ -33,16 +34,36 @@
             android:drawablePadding="0dp"
             android:gravity="center_vertical|start"
             android:layout_gravity="top"
-            android:layout_marginTop="20dp"
-            android:paddingLeft="16dp"
-            android:paddingRight="4dp"
-            android:textColor="#ffffff"
+            android:layout_marginTop="15dp"
+            android:textColor="@color/background"
+            android:text="Notifee"
+            android:textSize="35sp"
+            android:textStyle="italic"
+            android:onClick="scanBarcode"/>-->
+
+
+        <ImageView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:src="@drawable/notifee_logo"
+            android:paddingRight="150dp"/>
+
+
+        <TextView
             android:text="Scan"
-            android:textSize="25dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="5dp"
+            android:layout_margin="10dp"
+            android:background="@android:color/transparent"
+            android:textSize="20sp"
+            android:textColor="#ffffff"
             android:textStyle="normal"
             android:onClick="scanBarcode"/>
 
-        <ImageView
+
+        <!--<ImageView
             android:layout_width="50dp"
             android:layout_height="50dp"
             android:padding="5dp"
@@ -50,11 +71,11 @@
             android:layout_gravity="top"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_action_add"
-            android:onClick="openAddProduct" />
+            android:onClick="openAddProduct" />-->
     </LinearLayout>
     </android.support.v7.widget.Toolbar>
 
-    <LinearLayout
+    <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
@@ -69,7 +90,13 @@
             android:listSelector="@drawable/list_selector">
 
         </ListView>
-    </LinearLayout>
+
+        <include
+            layout="@layout/floatingbutton"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="bottom" />
+    </FrameLayout>
 
 
 

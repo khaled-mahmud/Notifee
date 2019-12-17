@@ -8,7 +8,7 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
-    <style name="AppThemeToolBar" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="AppThemeToolBar" parent="Theme.AppCompat.Light.NoActionBar" >
         <item name="colorPrimary">@color/myColorPrimary</item>
         <item name="colorPrimaryDark">@color/myColorPrimaryDark</item>
         <item name="colorAccent">@color/myColorAccent</item>

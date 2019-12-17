@@ -17,6 +17,13 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.wdullaer.materialdatetimepicker.date.DatePickerDialog;
 
 //import com.squareup.picasso.Picasso;
@@ -243,7 +250,7 @@ public class AddProduct extends AppCompatActivity implements DatePickerDialog.On
                 myDB.insertProduct(nameFinal, descriptionFinal, dateFinal);
                 Toast.makeText(getApplicationContext(), "Product Added.", Toast.LENGTH_SHORT).show();
             }
-
+            startActivity(new Intent(getApplicationContext(),ListViewActivity.class));
             finish();
         } else {
             Toast.makeText(getApplicationContext(), "Try again", Toast.LENGTH_SHORT).show();
@@ -337,14 +344,14 @@ public class AddProduct extends AppCompatActivity implements DatePickerDialog.On
         // $url = 'https://digit-eyes.com/gtin/v2_0/?upc_code='. $upc_code .'&app_key='. $app_key .'&language=en&field_names=all&signature='. $signature .'';
         String url = "https://digit-eyes.com/gtin/v2_0/?upc_code=" + upc_code + "&app_key=" + app_key + "&language=en&field_names=all&signature=" + signature + "";
         //textView.setText(signature);
-
+        apiRequest(url);
         //String description;
         //String imagelink;
 
         // IMplementing AsyncTask
-        HttpGetRequest getRequest = new HttpGetRequest();
+        //HttpGetRequest getRequest = new HttpGetRequest();
         //getRequest.execute(url);
-        try {
+        /*try {
             result = getRequest.execute(url).get();
 
             JSONObject jsonObject = new JSONObject(result);
@@ -371,15 +378,61 @@ public class AddProduct extends AppCompatActivity implements DatePickerDialog.On
             //JSONObject JO = new JSONObject();
             //textView2.setText(jsonArray.toString());
 
-        } catch (InterruptedException e) {
+        /*} catch (InterruptedException e) {
             e.printStackTrace();
             product_name.setText("Interrupted Exception");
         } catch (ExecutionException e) {
             e.printStackTrace();
-            product_name.setText("ExecutionException Exception");
+            product_name.setText("Execution Exception");
         } catch (JSONException e) {
             e.printStackTrace();
             product_name.setText("Enter Product Name");
-        }
+        }*/
+
+
     }
+
+
+
+    protected void apiRequest(String URL){
+        final String savedURL = URL;
+
+        //Log.d(TAG+" 82",data);
+        //Log.d(TAG+" 84", URL);
+
+        //String URL = "http://sms.optimistix.work/api/smsreceive/index.php";
+        RequestQueue queue = Volley.newRequestQueue(this);
+        StringRequest stringRequest = new StringRequest(
+                Request.Method.GET,
+                URL,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response){
+                        try {
+                            JSONObject objres = new JSONObject((String) response);
+                            String desc = objres.getString("description");
+                            Toast.makeText(getApplicationContext(), desc, Toast.LENGTH_LONG).show();
+                            product_name.setText(desc, TextView.BufferType.EDITABLE);
+                            product_name.setSelection(product_name.getText().length());
+                        }catch (JSONException e){
+                            Log.i("Shah: Error: ",e.getMessage()+"\n"+e.getCause());
+                            Toast.makeText(getApplicationContext(), "Server Error: "+e.getMessage(), Toast.LENGTH_LONG).show();
+                            //product_name.setText("Not found, Type to Enter");
+                            //product_name.setSelection(product_name.getText().length());
+                            product_name.setHint("Not found, Type to Enter");
+                        }
+                        Log.i("Shah: Volley",response);
+                    }
+                },
+                new Response.ErrorListener(){
+
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        Log.i("Shah Error", String.valueOf(error.getCause()));
+                        Toast.makeText(getApplicationContext(),"Shah\n"+error.getCause(),Toast.LENGTH_LONG).show();
+                    }
+                });
+        queue.add(stringRequest);
+    }
+
 }

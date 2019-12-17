@@ -87,6 +87,7 @@
         android:layout_toEndOf="@+id/thumbnail"
         android:text="Product Description..." />-->
 
+
     <!-- Rightend Duration -->
     <TextView
         android:id="@+id/duration"
@@ -101,7 +102,7 @@
         android:layout_marginEnd="5dp"
         android:textSize="12sp"
         android:textColor="#10bcc9"
-        android:textStyle="bold"/>
+        android:textStyle="bold" />
 
     <!-- Rightend Arrow -->
     <ImageView android:layout_width="wrap_content"
@@ -109,6 +110,6 @@
         android:src="@drawable/arrow"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true"
-        android:layout_centerVertical="true"/>
+        android:layout_centerVertical="true" />
 
 </RelativeLayout>

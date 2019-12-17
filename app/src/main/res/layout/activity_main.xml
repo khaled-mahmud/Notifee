@@ -21,6 +21,9 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentBottom="true"
         android:text="Add Manually"
-        android:onClick="addProduct"/>
+        android:onClick="addProduct"
+        android:background="@color/background"
+        android:textColor="@color/myColorPrimary"
+        android:padding="10dp"/>
 
 </RelativeLayout>

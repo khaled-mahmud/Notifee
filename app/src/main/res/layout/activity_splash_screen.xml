@@ -22,7 +22,7 @@
         android:layout_centerInParent="true"
         android:layout_margin="50dp"
         android:id="@+id/splash_screen_progress_bar"
-        style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal"/>
+        style="@android:style/Widget.DeviceDefault.ProgressBar.Horizontal" />
 
     <ImageView
         android:id="@+id/logoArt"

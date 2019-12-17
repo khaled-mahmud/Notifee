@@ -5,7 +5,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".AddProduct">
+    tools:context=".AddProduct"
+    android:background="@color/background">
 
     <android.support.v7.widget.Toolbar
         android:id="@+id/toolbar_product_add"
@@ -27,11 +28,11 @@
             <ImageView
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:padding="5dp"
-                android:layout_margin="5dp"
                 android:background="@android:color/transparent"
-                android:src="@drawable/ic_action_close"
-                android:onClick="closeAddProduct"/>
+                android:tint="#ffffff"
+                android:src="@drawable/ic_action_back"
+                android:onClick="closeAddProduct"
+                />
 
             <TextView
                 android:id="@+id/toolbar_product_add_title"
@@ -41,13 +42,11 @@
                 android:drawablePadding="0dp"
                 android:gravity="center_vertical|start"
                 android:layout_gravity="top"
-                android:layout_marginTop="20dp"
-                android:paddingLeft="16dp"
-                android:paddingRight="4dp"
-                android:textColor="#ffffff"
+                android:layout_marginTop="15dp"
+                android:textColor="@color/background"
                 android:text="Create"
-                android:textSize="25dp"
-                android:textStyle="normal" />
+                android:textSize="35sp"
+                android:textStyle="italic" />
 
             <ImageView
                 android:layout_width="45dp"
@@ -56,6 +55,7 @@
                 android:layout_margin="20dp"
                 android:background="@android:color/transparent"
                 android:src="@drawable/ic_action_done"
+                android:tint="#ffffff"
                 android:onClick="doneAddProduct"/>
 
         </LinearLayout>
@@ -84,7 +84,7 @@
             android:layout_centerVertical="true"
             android:layout_gravity="center"
             android:hint="Product Name"
-            android:background="@color/secondColor"
+            android:background="@color/firstColor"
             android:padding="12dp"
             android:ems="10"
             android:singleLine="true"
@@ -104,7 +104,7 @@
             android:layout_gravity="center"
             android:hint="Product Description"
             android:padding="12dp"
-            android:background="@color/firstColor"
+            android:background="@color/secondColor"
             android:ems="10"
             android:singleLine="true"
             android:textColorHint="#CCCCCC"
@@ -124,11 +124,11 @@
             android:hint="Date"
             android:padding="12dp"
             android:focusable="false"
-            android:background="@color/firstColor"
+            android:background="@color/thirdColor"
             android:ems="10"
             android:singleLine="true"
-            android:textColorHint="#CCCCCC"
-            android:textColor="#666666"
+            android:textColorHint="#808080"
+            android:textColor="#464646"
             android:onClick="showStartDatePicker"/>
 
         <ImageView
@@ -139,7 +139,8 @@
             android:layout_marginTop="60dp"
             android:background="@android:color/transparent"
             android:src="@drawable/ic_action_delete"
-            android:onClick="deleteProduct"/>
+            android:onClick="deleteProduct"
+            android:tint="@color/myColorPrimary"/>
 
 
 
